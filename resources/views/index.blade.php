@@ -65,7 +65,7 @@
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="div d-flex justify-content-between mb-3">
                                         <div class="text-lg leading-7 font-semibold">STRENGTH</div>
-                                        <button class="btn btn-light btn-sm">Add</button>
+                                        <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#STRENGTH">Add</button>
                                     </div>
                                     <table class="table table-dark table-bordered">
                                         <thead>
@@ -87,6 +87,39 @@
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <div class="modal fade" id="STRENGTH" tabindex="-1" aria-labelledby="STRENGTH" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD STRENGTH</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('strength') }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white text-white" name="faktor" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Faktor Strategis</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="bobot" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Bobot</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="rating" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Rating</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-light btn-sm">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -96,7 +129,7 @@
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="div d-flex justify-content-between mb-3">
                                         <div class="text-lg leading-7 font-semibold">WEAKNESS</div>
-                                        <button class="btn btn-light btn-sm">Add</button>
+                                        <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#WEAKNESS">Add</button>
                                     </div>
                                     <table class="table table-dark table-bordered">
                                             <thead>
@@ -118,6 +151,39 @@
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <div class="modal fade" id="WEAKNESS" tabindex="-1" aria-labelledby="STRENGTH" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD WEAKNESS</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('weakness') }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white text-white" name="faktor" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Faktor Strategis</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="bobot" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Bobot</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="rating" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Rating</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-light btn-sm">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -127,7 +193,7 @@
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="div d-flex justify-content-between mb-3">
                                         <div class="text-lg leading-7 font-semibold">OPPORTUNITY</div>
-                                        <button class="btn btn-light btn-sm">Add</button>
+                                        <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#OPPORTUNITY">Add</button>
                                     </div>
                                     <table class="table table-dark table-bordered">
                                         <thead>
@@ -149,6 +215,40 @@
                                             </tr>
                                             </tbody>
                                     </table>
+
+                                    <div class="modal fade" id="OPPORTUNITY" tabindex="-1" aria-labelledby="STRENGTH" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD OPPORTUNITY</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('opportunity') }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="faktor" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Faktor Strategis</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="bobot" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Bobot</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="rating" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Rating</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-light btn-sm">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div>
                             </div>
                         </div>
@@ -158,7 +258,7 @@
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                                     <div class="div d-flex justify-content-between mb-3">
                                         <div class="text-lg leading-7 font-semibold">THREATS</div>
-                                        <button class="btn btn-light btn-sm">Add</button>
+                                        <button class="btn btn-light btn-sm" data-bs-toggle="modal" data-bs-target="#THREATS">Add</button>
                                     </div>
                                     <table class="table table-dark table-bordered">
                                         <thead>
@@ -180,6 +280,39 @@
                                             </tr>
                                         </tbody>
                                     </table>
+
+                                    <div class="modal fade" id="THREATS" tabindex="-1" aria-labelledby="STRENGTH" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content bg-dark">
+                                                <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">ADD THREATS</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <form action="{{ route('threats') }}" method="POST">
+                                                    @csrf
+                                                    <div class="modal-body">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="faktor" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Faktor Strategis</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="bobot" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Bobot</label>
+                                                        </div>
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control bg-black text-white" name="rating" id="floatingInput" placeholder="...">
+                                                            <label for="floatingInput">Rating</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="submit" class="btn btn-light btn-sm">Save</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

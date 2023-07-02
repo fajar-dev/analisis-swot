@@ -15,3 +15,8 @@ use App\Http\Controllers\SwotController;
 */
 
 Route::get('/', [SwotController::class, 'index'])->name('index');
+Route::post('/strength', [SwotController::class, 'strength'])->name('strength');
+Route::post('/weakness', [SwotController::class, 'weakness'])->name('weakness');
+Route::post('/opportunity', [SwotController::class, 'opportunity'])->name('opportunity');
+Route::post('/threats', [SwotController::class, 'threats'])->name('threats');
+
