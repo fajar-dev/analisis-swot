@@ -15,6 +15,10 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
+            $table->string('faktor_strategis');
+            $table->float('bobot');
+            $table->float('rating');
+            $table->float('score');
             $table->timestamps();
         });
     }
