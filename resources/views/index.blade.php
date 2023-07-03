@@ -30,28 +30,6 @@
                     <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                        <h1 class="text-white fw-bold fs-1">SWOT</h1>
                     </div>
-                    <div class="card bg-dark w-25 shadow">
-                        <div class="card-body pb-0">
-                            <table class="table table-dark table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">(x,y)</th>
-                                        <th scope="col">Nilai Kuadran</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <th scope="row">x</th>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">y</th>
-                                        <td>1</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
 
                 <div class="mt-8 bg-dark overflow-hidden shadow sm:rounded-lg">
@@ -75,17 +53,31 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $no=1  ?>
-                                                @foreach ($data['strength'] as $row)
+                                                <?php 
+                                                    $no=1;  
+                                                    $total_bobot_strength = 0;
+                                                    $total_score_strength = 0;
+                                                ?>
+                                                @foreach ($data['strength'] as $strength)
                                                 <tr>
                                                     <th scope="row">{{ $no++ }}</th>
-                                                    <td>{{ $row->faktor_strategis }}</td>
-                                                    <td>{{ $row->bobot }}</td>
-                                                    <td>{{ $row->rating }}</td>
-                                                    <td>{{ $row->score }}</td>
-                                                    <td><a href="{{ route('strength_delete', $row->id) }}" class="btn btn-sm btn-danger">X</a></td>
+                                                    <td>{{ $strength->faktor_strategis }}</td>
+                                                    <td>{{ $strength->bobot }}</td>
+                                                    <td>{{ $strength->rating }}</td>
+                                                    <td>{{ $strength->score }}</td>
+                                                    <td><a href="{{ route('strength_delete', $strength->id) }}" class="btn btn-sm btn-danger">X</a></td>
                                                 </tr>
+                                                <?php
+                                                    $total_bobot_strength += $strength->bobot;
+                                                    $total_score_strength += $strength->score;
+                                                ?>
                                                 @endforeach
+                                                <tr>
+                                                    <th colspan="2">Total</th>
+                                                    <td>{{ $total_bobot_strength }}</td>
+                                                    <td>-</td>
+                                                    <td colspan="2">{{ $total_score_strength }}</td>
+                                                </tr>
                                         </tbody>
                                     </table>
 
@@ -144,17 +136,31 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $no=1  ?>
-                                                @foreach ($data['weakness'] as $row)
+                                                <?php
+                                                    $no=1;
+                                                    $total_bobot_weakness = 0;
+                                                    $total_score_weakness = 0;
+                                                ?>
+                                                @foreach ($data['weakness'] as $weakness)
                                                 <tr>
                                                     <th scope="row">{{ $no++ }}</th>
-                                                    <td>{{ $row->faktor_strategis }}</td>
-                                                    <td>{{ $row->bobot }}</td>
-                                                    <td>{{ $row->rating }}</td>
-                                                    <td>{{ $row->score }}</td>
-                                                    <td><a href="{{ route('weakness_delete', $row->id) }}" class="btn btn-sm btn-danger">X</a></td>
+                                                    <td>{{ $weakness->faktor_strategis }}</td>
+                                                    <td>{{ $weakness->bobot }}</td>
+                                                    <td>{{ $weakness->rating }}</td>
+                                                    <td>{{ $weakness->score }}</td>
+                                                    <td><a href="{{ route('weakness_delete', $weakness->id) }}" class="btn btn-sm btn-danger">X</a></td>
                                                 </tr>
+                                                <?php
+                                                    $total_bobot_weakness += $weakness->bobot;
+                                                    $total_score_weakness += $weakness->score;
+                                                ?>
                                                 @endforeach
+                                                <tr>
+                                                    <th colspan="2">Total</th>
+                                                    <td>{{ $total_bobot_weakness }}</td>
+                                                    <td>-</td>
+                                                    <td colspan="2">{{ $total_score_weakness }}</td>
+                                                </tr>
                                         </tbody>
                                     </table>
 
@@ -213,17 +219,31 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                                <?php $no=1  ?>
-                                                @foreach ($data['opportunity'] as $row)
+                                                <?php
+                                                    $no = 1;
+                                                    $total_bobot_opportunity = 0;
+                                                    $total_score_opportunity = 0;
+                                                ?>
+                                                @foreach ($data['opportunity'] as $opportunity)
                                                 <tr>
                                                     <th scope="row">{{ $no++ }}</th>
-                                                    <td>{{ $row->faktor_strategis }}</td>
-                                                    <td>{{ $row->bobot }}</td>
-                                                    <td>{{ $row->rating }}</td>
-                                                    <td>{{ $row->score }}</td>
-                                                    <td><a href="{{ route('opportunity_delete', $row->id) }}" class="btn btn-sm btn-danger">X</a></td>
+                                                    <td>{{ $opportunity->faktor_strategis }}</td>
+                                                    <td>{{ $opportunity->bobot }}</td>
+                                                    <td>{{ $opportunity->rating }}</td>
+                                                    <td>{{ $opportunity->score }}</td>
+                                                    <td><a href="{{ route('opportunity_delete', $opportunity->id) }}" class="btn btn-sm btn-danger">X</a></td>
                                                 </tr>
+                                                <?php
+                                                    $total_bobot_opportunity += $opportunity->bobot;
+                                                    $total_score_opportunity += $opportunity->score;
+                                                ?>
                                                 @endforeach
+                                                <tr>
+                                                    <th colspan="2">Total</th>
+                                                    <td>{{ $total_bobot_opportunity }}</td>
+                                                    <td>-</td>
+                                                    <td colspan="2">{{ $total_score_opportunity }}</td>
+                                                </tr>
                                             </tbody>
                                     </table>
 
@@ -283,17 +303,31 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <?php $no=1  ?>
-                                            @foreach ($data['threats'] as $row)
+                                            <?php
+                                                $no = 1;
+                                                $total_bobot_threat = 0;
+                                                $total_score_threat = 0;
+                                            ?>
+                                            @foreach ($data['threats'] as $threat)
                                             <tr>
                                                 <th scope="row">{{ $no++ }}</th>
-                                                <td>{{ $row->faktor_strategis }}</td>
-                                                <td>{{ $row->bobot }}</td>
-                                                <td>{{ $row->rating }}</td>
-                                                <td>{{ $row->score }}</td>
-                                                <td><a href="{{ route('threats_delete', $row->id) }}" class="btn btn-sm btn-danger">X</a></td>
+                                                <td>{{ $threat->faktor_strategis }}</td>
+                                                <td>{{ $threat->bobot }}</td>
+                                                <td>{{ $threat->rating }}</td>
+                                                <td>{{ $threat->score }}</td>
+                                                <td><a href="{{ route('threats_delete', $threat->id) }}" class="btn btn-sm btn-danger">X</a></td>
                                             </tr>
+                                            <?php
+                                                $total_bobot_threat += $threat->bobot;
+                                                $total_score_threat += $threat->score;
+                                            ?>
                                             @endforeach
+                                            <tr>
+                                                <th colspan="2">Total</th>
+                                                <td>{{ $total_bobot_threat }}</td>
+                                                <td>-</td>
+                                                <td colspan="2">{{ $total_score_threat }}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
 
@@ -333,6 +367,35 @@
                             </div>
                         </div>
                         
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="card bg-dark w-25 shadow mt-4">
+                        <div class="card-body pb-0">
+                            <table class="table table-dark table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">(x,y)</th>
+                                        <th scope="col">Nilai Kuadran</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php 
+                                            $Xkoordinat = ($total_score_strength - $total_score_weakness) / 2;
+                                            $Ykoordinat = ($total_score_opportunity - $total_score_threat) / 2;
+                                        ?>
+                                    <tr>
+                                        <th scope="row">x</th>
+                                        <td>{{ $Xkoordinat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">y</th>
+                                        <td>{{ $Ykoordinat }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
