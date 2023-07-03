@@ -12,18 +12,21 @@ class SwotController extends Controller
         $data['weakness'] = DB::table('weaknesses')->get();
         $data['opportunity'] = DB::table('opportunities')->get();
         $data['threats'] = DB::table('threats')->get();
-
-        dd($data);
-        return view('index', compact('data'));
+          return view('index', compact('data'));
     }
 
     public function strength(Request $request){
         DB::table('strengths')->insert([
             'faktor_strategis' => $request->faktor,
             'bobot' => $request->bobot,
-            'rating' => $request->bobot,
-            'score' => $request->bobot * $request->bobot,
+            'rating' => $request->rating,
+            'score' => $request->bobot * $request->rating,
         ]);
+        return redirect()->route('index')->with('success', "Schedule has been added successfully");
+    }
+
+    public function strength_delete($id){
+        DB::table('strengths')->where('id', $id)->delete();
         return redirect()->route('index')->with('success', "Schedule has been added successfully");
     }
 
@@ -31,9 +34,14 @@ class SwotController extends Controller
         DB::table('weaknesses')->insert([
             'faktor_strategis' => $request->faktor,
             'bobot' => $request->bobot,
-            'rating' => $request->bobot,
-            'score' => $request->bobot * $request->bobot,
+            'rating' => $request->rating,
+            'score' => $request->bobot * $request->rating,
         ]);
+        return redirect()->route('index')->with('success', "Schedule has been added successfully");
+    }
+
+    public function weakness_delete($id){
+        DB::table('weaknesses')->where('id', $id)->delete();
         return redirect()->route('index')->with('success', "Schedule has been added successfully");
     }
 
@@ -41,9 +49,14 @@ class SwotController extends Controller
         DB::table('opportunities')->insert([
             'faktor_strategis' => $request->faktor,
             'bobot' => $request->bobot,
-            'rating' => $request->bobot,
-            'score' => $request->bobot * $request->bobot,
+            'rating' => $request->rating,
+            'score' => $request->bobot * $request->rating,
         ]);
+        return redirect()->route('index')->with('success', "Schedule has been added successfully");
+    }
+
+    public function opportunity_delete($id){
+        DB::table('opportunities')->where('id', $id)->delete();
         return redirect()->route('index')->with('success', "Schedule has been added successfully");
     }
 
@@ -51,9 +64,14 @@ class SwotController extends Controller
         DB::table('threats')->insert([
             'faktor_strategis' => $request->faktor,
             'bobot' => $request->bobot,
-            'rating' => $request->bobot,
-            'score' => $request->bobot * $request->bobot,
+            'rating' => $request->rating,
+            'score' => $request->bobot * $request->rating,
         ]);
+        return redirect()->route('index')->with('success', "Schedule has been added successfully");
+    }
+
+    public function threats_delete($id){
+        DB::table('threats')->where('id', $id)->delete();
         return redirect()->route('index')->with('success', "Schedule has been added successfully");
     }
 }
